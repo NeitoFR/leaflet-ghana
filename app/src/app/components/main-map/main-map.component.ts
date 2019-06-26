@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import * as L from "leaflet";
 import "leaflet.markercluster";
 import { HttpClient } from '@angular/common/http';
+import { GeoJsonObject } from 'geojson';
 @Component({
   selector: "app-main-map",
   templateUrl: "./main-map.component.html",
@@ -11,8 +12,9 @@ export class MainMapComponent implements OnInit {
   constructor(private http:HttpClient) {}
 
   ngOnInit() {
-    var mainmap = L.map("mainmap").setView([50.6311634, 3.0599573], 13);
+    var mainmap = L.map("mainmap", {
 
+    }).setView([7.946527, -1.023194], 9);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       noWrap: true,
@@ -27,7 +29,14 @@ export class MainMapComponent implements OnInit {
       iconAnchor: [9, 21],
       popupAnchor: [5, -18]
     });
-    
+    this.http.get<GeoJsonObject>("assets/ghanafinal.geojson").subscribe(res => {
+      console.log(res);
+      L.geoJSON(res).addTo(mainmap)
+    });
+    // this.http.get<GeoJsonObject>("assets/distributiongridecowas2017.geojson").subscribe(res => {
+    //   console.log(res);
+    //   L.geoJSON(res).addTo(mainmap)
+    // });
     this.http.get<any[]>("assets/markers.json").subscribe(res => {
       var markerClusters = L.markerClusterGroup();
       res.forEach(marker => {  
