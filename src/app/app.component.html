@@ -7,9 +7,10 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="main-content flex__item">
-    <mat-sidenav mode="over" #sidenav>Start</mat-sidenav>
-    <mat-sidenav-content class="">
-      <!-- <div id="mainmap" class="flex__item"></div> -->
+    <mat-sidenav mode="over" #sidenav class="sidenav">
+        <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
       <app-main-map></app-main-map>
     </mat-sidenav-content>
   </mat-sidenav-container>

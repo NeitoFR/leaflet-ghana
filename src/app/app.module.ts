@@ -17,11 +17,13 @@ import { AppComponent } from './app.component';
 import { ToastrService } from "./services/toastr.service";
 import { FooterComponent } from './components/footer/footer.component';
 import { MainMapComponent } from './components/main-map/main-map.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    MainMapComponent
+    MainMapComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,

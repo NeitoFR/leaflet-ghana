@@ -28,7 +28,9 @@
             ],
             "styles": [
               "src/styles.scss", 
-              "./node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
               "node_modules/toastr/build/toastr.min.css"
             ],
             "stylePreprocessorOptions": {
@@ -37,7 +39,8 @@
             "scripts": [
               "node_modules/leaflet/dist/leaflet.js",
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/toastr/build/toastr.min.js"
+              "node_modules/toastr/build/toastr.min.js", 
+              "node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"
             ],
             "es5BrowserSupport": true
           },
